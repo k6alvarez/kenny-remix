@@ -10,6 +10,16 @@ type LoginForm = {
   password: string;
 };
 
+export async function register({
+  username,
+  password
+}: LoginForm) {
+  let passwordHash = await bcrypt.hash(password, 10);
+  return db.user.create({
+    data: { username, passwordHash }
+  });
+}
+
 export async function login({
   username,
   password
