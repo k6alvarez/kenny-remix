@@ -2,6 +2,10 @@ import type { LinksFunction } from 'remix';
 import { Link } from 'remix';
 import stylesUrl from '../styles/index.css';
 
+export function ErrorBoundary() {
+  return <div className="error-container">I did a whoopsies.</div>;
+}
+
 export let links: LinksFunction = () => {
   return [
     {
