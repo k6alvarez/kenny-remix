@@ -1,16 +1,22 @@
-# fly.toml file generated for kadotcom on 2021-11-26T02:07:21-08:00
+# fly.toml file generated for remix-kenny on 2021-12-01T13:13:23-08:00
 
-app = "kadotcom"
+app = "remix-kenny"
 
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
 
 [env]
+  DATABASE_URL = "file:/data/sqlite.db"
+  PORT = "8080"
 
 [experimental]
-  allowed_public_ports = []
-  auto_rollback = true
+  cmd = "start_with_migrations.sh"
+  entrypoint = "sh"
+
+[[mounts]]
+  destination = "/data"
+  source = "data"
 
 [[services]]
   http_checks = []

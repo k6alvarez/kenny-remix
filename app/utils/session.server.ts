@@ -43,7 +43,7 @@ if (!sessionSecret) {
 
 let storage = createCookieSessionStorage({
   cookie: {
-    name: "RJ_session",
+    name: "kennydotcom_session",
     secure: true,
     secrets: [sessionSecret],
     sameSite: "lax",
