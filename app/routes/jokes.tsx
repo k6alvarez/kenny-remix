@@ -48,7 +48,11 @@ export default function JokesRoute() {
       <header className="jokes-header">
         <div className="container">
           <h1 className="home-link">
-            <Link to="/" title="Remix Jokes" aria-label="Remix Jokes">
+            <Link
+              to="/"
+              title="Kenny Alvarez Blog"
+              aria-label="Kenny Alvarez Blog"
+            >
               <span className="logo">🤪</span>
               <span className="logo-medium">J🤪KES</span>
             </Link>

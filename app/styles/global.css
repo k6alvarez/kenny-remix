@@ -19,9 +19,17 @@
     rgba(118, 15, 181, 1) 35%,
     rgba(58, 13, 85, 1) 100%
   );
+  /* Theme Colors HSL */
+  --white: hsla(0, 0%, 100%, 1);
+  --raisin-black: hsla(300, 6%, 13%, 1);
+  --marigold: hsla(38, 83%, 55%, 1);
+  --carolina-blue: hsla(207, 59%, 57%, 1);
+  --flame: hsla(15, 86%, 53%, 1);
   --font-body: -apple-system, 'Segoe UI', Helvetica Neue, Helvetica, Roboto,
     Arial, sans-serif, system-ui, 'Apple Color Emoji', 'Segoe UI Emoji';
   --font-display: baloo, var(--font-body);
+  --theme-padding: 5rem;
+  --theme-gap: 2rem;
 }
 
 html {
@@ -48,7 +56,7 @@ body {
   padding: 0;
   margin: 0;
   color: var(--color-foreground);
-  background-color: var(--color-background);
+  background-color: var(--raisin-black);
 }
 
 [data-light] {

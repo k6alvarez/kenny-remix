@@ -20,7 +20,7 @@ export let loader: LoaderFunction = async ({ request }) => {
   let rssString = `
     <rss xmlns:blogChannel="${jokesUrl}" version="2.0">
       <channel>
-        <title>Remix Jokes</title>
+        <title>Kenny Alvarez Blog</title>
         <link>${jokesUrl}</link>
         <description>Some funny jokes</description>
         <language>en-us</language>

@@ -10,8 +10,8 @@ export let links: LinksFunction = () => {
 
 export let meta: MetaFunction = () => {
   return {
-    title: 'Remix Jokes | Login',
-    description: 'Login to submit your own jokes to Remix Jokes!',
+    title: 'Kenny Alvarez Blog | Login',
+    description: 'Login to manage profile.',
   };
 };
 
