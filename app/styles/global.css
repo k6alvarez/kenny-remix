@@ -9,8 +9,8 @@
   --hs-links: 48 100%;
   --color-foreground: hsl(0, 0%, 100%);
   --color-background: hsl(278, 73%, 19%);
-  --color-links: hsl(var(--hs-links) 50%);
-  --color-links-hover: hsl(var(--hs-links) 45%);
+  --color-links: hsla(var(--hs-links) 50%);
+  --color-links-hover: hsla(var(--hs-links) 45%);
   --color-border: hsl(277, 85%, 38%);
   --color-invalid: hsl(356, 100%, 71%);
   --gradient-background: radial-gradient(
@@ -374,4 +374,6 @@ label > [type='radio'] {
 
 .app-header nav ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
