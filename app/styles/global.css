@@ -6,11 +6,11 @@
 }
 
 :root {
-  --hs-links: 48 100%;
+  --hs-links: 38 83%;
   --color-foreground: hsl(0, 0%, 100%);
   --color-background: hsl(278, 73%, 19%);
-  --color-links: hsla(var(--hs-links) 50%);
-  --color-links-hover: hsla(var(--hs-links) 45%);
+  --color-links: hsla(var(--hs-links) 55%);
+  --color-links-hover: hsla(var(--hs-links) 65%);
   --color-border: hsl(277, 85%, 38%);
   --color-invalid: hsl(356, 100%, 71%);
   --gradient-background: radial-gradient(
@@ -22,6 +22,7 @@
   /* Theme Colors HSL */
   --white: hsla(0, 0%, 100%, 1);
   --raisin-black: hsla(300, 6%, 13%, 1);
+  --tea-green: hsla(112, 49%, 81%, 1);
   --marigold: hsla(38, 83%, 55%, 1);
   --carolina-blue: hsla(207, 59%, 57%, 1);
   --flame: hsla(15, 86%, 53%, 1);
@@ -370,6 +371,15 @@ label > [type='radio'] {
   align-items: center;
   justify-content: space-between;
   padding: 0.05rem 1rem;
+}
+
+.app-header nav ul {
+  display: flex;
+  gap: calc((var(--theme-gap)) / 2);
+}
+
+.app-header nav ul li {
+  display: flex;
 }
 
 .app-header nav ul {
