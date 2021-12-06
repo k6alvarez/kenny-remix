@@ -360,3 +360,18 @@ label > [type='radio'] {
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
 }
+
+.app-header {
+  position: sticky;
+  top: 0;
+  background-color: var(--raisin-black);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.05rem 1rem;
+}
+
+.app-header nav ul {
+  list-style: none;
+}

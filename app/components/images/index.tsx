@@ -1,11 +1,3 @@
-// import styled from 'styled-components';
-
-// const IconContainer = styled.div`
-//   position: relative;
-//   width: ${(props) => (props.size ? props.size : '25px')};
-//   height: ${(props) => (props.size ? props.size : '25px')};
-// `;
-
 export interface IconProps {
   color?: string;
   size?: string;
@@ -20,6 +12,7 @@ export const CacutsIcon = ({
       width: size,
       height: size,
       position: 'relative',
+      display: 'inline-block',
     }}
   >
     <svg viewBox="0 0 80 80" fill={color}>
