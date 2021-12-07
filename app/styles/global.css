@@ -410,3 +410,10 @@ label > [type='radio'] {
 .intro-section:nth-child(3) {
   background-color: var(--flame);
 }
+
+.app-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem;
+  font-size: 0.8rem;
+}

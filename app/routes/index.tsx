@@ -1,6 +1,7 @@
 import { User } from '@prisma/client';
 import { LinksFunction, LoaderFunction, MetaFunction } from 'remix';
 import { Cards } from '~/components/cards';
+import { Footer } from '~/components/footer';
 import { Header } from '~/components/header';
 import { getUser } from '~/utils/session.server';
 import stylesUrl from '../styles/index.css';
@@ -61,6 +62,7 @@ export default function Index() {
           <Cards />
         </div>
       </div>
+      <Footer />
     </>
   );
 }

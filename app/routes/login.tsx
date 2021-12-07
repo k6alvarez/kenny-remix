@@ -47,7 +47,7 @@ export let action: ActionFunction = async ({
   let loginType = form.get('loginType');
   let username = form.get('username');
   let password = form.get('password');
-  let redirectTo = form.get('redirectTo') || '/jokes';
+  let redirectTo = form.get('redirectTo') || '/';
   if (
     typeof loginType !== 'string' ||
     typeof username !== 'string' ||
