@@ -1,6 +1,8 @@
-import type { LinksFunction, MetaFunction } from 'remix';
+import { User } from '@prisma/client';
+import { LinksFunction, LoaderFunction, MetaFunction } from 'remix';
 import { Cards } from '~/components/cards';
 import { Header } from '~/components/header';
+import { getUser } from '~/utils/session.server';
 import stylesUrl from '../styles/index.css';
 
 export let links: LinksFunction = () => {
@@ -17,6 +19,19 @@ export let meta: MetaFunction = () => {
     title: 'Kenny Alvarez personal website and blog',
     description: 'Hola Mundo! Welcome to my web developer portfolio and blog.',
   };
+};
+
+type LoaderData = {
+  user: User | null;
+};
+
+export let loader: LoaderFunction = async ({ request }) => {
+  let user = await getUser(request);
+
+  let data: LoaderData = {
+    user,
+  };
+  return data;
 };
 
 export default function Index() {
