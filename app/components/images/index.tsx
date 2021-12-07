@@ -7,19 +7,10 @@ export const CacutsIcon = ({
   color = 'hsla(300, 6%, 13%, 1)',
   size = '50px',
 }: IconProps) => (
-  <div
-    style={{
-      width: size,
-      height: size,
-      position: 'relative',
-      display: 'inline-block',
-    }}
-  >
-    <svg viewBox="0 0 80 80" fill={color}>
-      <path d="M65 40.16a5 5 0 0 0-5 5v9h-2.5v10H65a5 5 0 0 0 5-5v-14a5 5 0 0 0-5-5zM40.5 44.16H40v-9a5 5 0 0 0-10 0v14a5 5 0 0 0 5 5h7.5v-10z" />
-      <path d="M63.86 77.73H57.5V26.65A6.67 6.67 0 0 0 50.85 20h-1.7a6.67 6.67 0 0 0-6.65 6.65v51.08h-6.36A1.14 1.14 0 0 0 35 78.86V80h30v-1.14a1.14 1.14 0 0 0-1.14-1.13z" />
-    </svg>
-  </div>
+  <svg viewBox="0 0 80 80" fill={color}>
+    <path d="M65 40.16a5 5 0 0 0-5 5v9h-2.5v10H65a5 5 0 0 0 5-5v-14a5 5 0 0 0-5-5zM40.5 44.16H40v-9a5 5 0 0 0-10 0v14a5 5 0 0 0 5 5h7.5v-10z" />
+    <path d="M63.86 77.73H57.5V26.65A6.67 6.67 0 0 0 50.85 20h-1.7a6.67 6.67 0 0 0-6.65 6.65v51.08h-6.36A1.14 1.14 0 0 0 35 78.86V80h30v-1.14a1.14 1.14 0 0 0-1.14-1.13z" />
+  </svg>
 );
 
 // export const BlogsIcon = (props) => (

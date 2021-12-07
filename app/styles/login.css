@@ -57,8 +57,3 @@ fieldset > :not(:last-child) {
   gap: 1.5rem;
   align-items: center;
 }
-
-.links a:hover {
-  text-decoration-style: wavy;
-  text-decoration-thickness: 1px;
-}

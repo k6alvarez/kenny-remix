@@ -81,7 +81,6 @@ a {
 
 a:hover {
   color: var(--color-links-hover);
-  text-decoration: underline;
 }
 
 hr {
@@ -106,6 +105,11 @@ h6 {
 h1 {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+h1 svg {
+  width: 2rem;
+  height: 2rem;
 }
 
 h2 {
@@ -168,7 +172,7 @@ h6 {
   line-height: 1;
   font-size: 1.125rem;
   margin: 0;
-  padding: 0.625em 1em;
+  padding: 0.4em 0.8em;
   border: 0;
   border-radius: 4px;
   outline-offset: 2px;

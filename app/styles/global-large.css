@@ -3,6 +3,11 @@ h1 {
   line-height: 1;
 }
 
+h1 svg {
+  width: 3rem;
+  height: 3rem;
+}
+
 h2 {
   font-size: 1.875rem;
   line-height: 2.25rem;

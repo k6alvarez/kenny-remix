@@ -7,6 +7,7 @@ import {
   useLoaderData,
 } from 'remix';
 import { Outlet } from 'remix';
+import { Footer } from '~/components/footer';
 import { Header } from '~/components/header';
 import { db } from '~/utils/db.server';
 import { getUser } from '~/utils/session.server';
@@ -73,6 +74,7 @@ export default function JokesRoute() {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 }
