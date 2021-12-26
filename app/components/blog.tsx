@@ -12,17 +12,20 @@ export function BlogDisplay({
 }) {
   return (
     <div>
-      <p>Here's your hilarious blog:</p>
-      <p>{blog.content}</p>
-      <Link to=".">{blog.name} Permalink</Link>
-      {isOwner ? (
-        <Form method="post">
-          <input type="hidden" name="_method" value="delete" />
-          <button type="submit" className="button" disabled={!canDelete}>
-            Delete
-          </button>
-        </Form>
-      ) : null}
+      <div className="content-section">
+        <h1>{blog.name}</h1>
+        <p>{blog.content}</p>
+        <Link to=".">{blog.name} Permalink</Link>
+
+        {isOwner ? (
+          <Form method="post">
+            <input type="hidden" name="_method" value="delete" />
+            <button type="submit" className="button" disabled={!canDelete}>
+              Delete
+            </button>
+          </Form>
+        ) : null}
+      </div>
     </div>
   );
 }

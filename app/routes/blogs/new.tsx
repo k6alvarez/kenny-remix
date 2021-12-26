@@ -110,8 +110,8 @@ export default function NewJokeRoute() {
   }
 
   return (
-    <div>
-      <p>Add your own hilarious blog</p>
+    <div className="form-container">
+      <h1>Add a new blog:</h1>
       <Form method="post">
         <div>
           <label>

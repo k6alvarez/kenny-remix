@@ -54,27 +54,25 @@ export default function Index() {
     <>
       <Header />
       <div className="content">
-        <div className="intro-section">
+        <div className="content-section">
           <div className="logo">
             <h1>I'm a web developer.</h1>
           </div>
           <p>
-            Welcome to my small part of the Internet. I am a web devloper living
-            in Atlanta, Georgia but I was born and raised in Fennville,
-            Michigan. When I'm not working on a web apps, I like to go for long
-            runs, play soccer, eat tacos, and spend time with my soon to be
-            wife. I hope y'all enjoy the content of my blog, I will share what I
-            learn in my career in programming along with other parts of my life.
+            Welcome to my small part of the Internet. I am a web devloper
+            currently traveling the country with my fiancée. When I'm not
+            working on a web apps, I like to go for long runs, play soccer, eat
+            tacos, and explore nature. I hope y'all enjoy the content of my
+            blog, I will share what I learn in my career in programming along
+            with other parts of my life.
           </p>
         </div>
-        <div className="intro-section">
-          <h1>My Blogs</h1>
-          <Cards data={data.blogListItems} />
-        </div>
-        <div className="intro-section">
+
+        <Cards data={data.blogListItems} title="My Blogs" />
+        {/* <div className="content-section">
           <h1>My Projects</h1>
           <Cards data={[]} />
-        </div>
+        </div> */}
       </div>
       <Footer />
     </>

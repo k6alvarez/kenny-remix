@@ -7,6 +7,7 @@ import {
   useLoaderData,
 } from 'remix';
 import { Outlet } from 'remix';
+import { Cards } from '~/components/cards';
 import { Footer } from '~/components/footer';
 import { Header } from '~/components/header';
 import { db } from '~/utils/db.server';
@@ -24,7 +25,7 @@ export let links: LinksFunction = () => {
 
 type LoaderData = {
   user: User | null;
-  blogListItems: Array<{ id: string; name: string }>;
+  blogListItems: Array<{ id: string; name: string; image: string }>;
 };
 
 export let loader: LoaderFunction = async ({ request }) => {
@@ -49,31 +50,13 @@ export default function JokesRoute() {
     <>
       <Header />
       <div className="content">
-        <div className="intro-section">
-          {/* <Link to=".">Get a random blog</Link> */}
-          <p>
-            I do not blog a whole lot but here are a few of my most recent
-            posts. I'll share my experiences working as a remote software
-            developer.
-          </p>
-          <ul>
-            {data.blogListItems.map((blog) => (
-              <li key={blog.id}>
-                <Link prefetch="intent" to={blog.id}>
-                  {blog.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div className="blogs-outlet">
-            <Outlet />
-          </div>
-          {data.user?.role === 'ADMIN' && (
-            <Link to="new" className="button">
-              Add your own
-            </Link>
-          )}
-        </div>
+        <Outlet />
+        <Cards data={data.blogListItems} title={'Other Posts'} />
+        {data.user?.role === 'ADMIN' && (
+          <Link to="new" className="button">
+            Add New Blog
+          </Link>
+        )}
       </div>
       <Footer />
     </>

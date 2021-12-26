@@ -25,11 +25,24 @@ export default function BlogsIndexRoute() {
   let data = useLoaderData<LoaderData>();
 
   return (
-    <div>
-      <p>Here's a random blog:</p>
-      <p>{data.randomBlog.content}</p>
-      <Link to={data.randomBlog.id}>"{data.randomBlog.name}" Permalink</Link>
-    </div>
+    <>
+      <div className="content-section">
+        <h1>Talking my shit.</h1>
+        <p>
+          My blogs posts will mostly focus on my career as a software developer.
+          I hope to also share my experiences living as a remote worker while
+          traveling with my finacée. Other content may include my hobbies,
+          product reviews, along with any life lessons learned. Below you'll
+          find my recent blogs along with a random blog for a preview of my
+          content. 😃
+        </p>
+      </div>
+      <div className="content-section">
+        <h1>{data.randomBlog.name}</h1>
+        <p>{data.randomBlog.content}</p>
+        <Link to={data.randomBlog.id}>"{data.randomBlog.name}" Permalink</Link>
+      </div>
+    </>
   );
 }
 

@@ -24,7 +24,7 @@ export const Header = () => {
       <Link to="/">
         <h1>
           <CacutsIcon color="hsla(112, 49%, 81%, 1)" />
-          Kenny Alvarez
+          KA
         </h1>
       </Link>
       <nav>

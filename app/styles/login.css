@@ -4,10 +4,6 @@
  * pages!
  */
 
-body {
-  background-image: var(--gradient-background);
-}
-
 .container {
   min-height: inherit;
 }
@@ -21,6 +17,7 @@ body {
 }
 
 .content {
+  flex-grow: initial;
   padding: 1rem;
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
