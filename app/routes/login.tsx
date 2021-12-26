@@ -10,8 +10,8 @@ export let links: LinksFunction = () => {
 
 export let meta: MetaFunction = () => {
   return {
-    title: 'Remix Jokes | Login',
-    description: 'Login to submit your own jokes to Remix Jokes!',
+    title: 'Kenny Alvarez Blog | Login',
+    description: 'Login to manage profile.',
   };
 };
 
@@ -47,7 +47,7 @@ export let action: ActionFunction = async ({
   let loginType = form.get('loginType');
   let username = form.get('username');
   let password = form.get('password');
-  let redirectTo = form.get('redirectTo') || '/jokes';
+  let redirectTo = form.get('redirectTo') || '/';
   if (
     typeof loginType !== 'string' ||
     typeof username !== 'string' ||
@@ -206,7 +206,7 @@ export default function Login() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/jokes">Jokes</Link>
+            <Link to="/blogs">Blogs</Link>
           </li>
         </ul>
       </div>

@@ -1,0 +1,10 @@
+.blogs-outlet {
+  margin-bottom: var(--theme-gap);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: var(--theme-padding);
+}

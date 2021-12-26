@@ -2,10 +2,10 @@ import type { LoaderFunction } from 'remix';
 import { db } from '~/utils/db.server';
 
 export let loader: LoaderFunction = async ({ request }) => {
-  let jokes = await db.joke.findMany({
+  let blogs = await db.blog.findMany({
     take: 100,
     orderBy: { createdAt: 'desc' },
-    include: { jokester: { select: { username: true } } },
+    include: { author: { select: { username: true } } },
   });
 
   let host =
@@ -15,27 +15,27 @@ export let loader: LoaderFunction = async ({ request }) => {
   }
   let protocol = host.includes('localhost') ? 'http' : 'https';
   let domain = `${protocol}://${host}`;
-  let jokesUrl = `${domain}/jokes`;
+  let blogsUrl = `${domain}/blogs`;
 
   let rssString = `
-    <rss xmlns:blogChannel="${jokesUrl}" version="2.0">
+    <rss xmlns:blogChannel="${blogsUrl}" version="2.0">
       <channel>
         <title>Kenny Alvarez Blog</title>
-        <link>${jokesUrl}</link>
-        <description>Some funny jokes</description>
+        <link>${blogsUrl}</link>
+        <description>Some funny blogs</description>
         <language>en-us</language>
         <generator>Kody the Koala</generator>
         <ttl>40</ttl>
-        ${jokes
-          .map((joke) =>
+        ${blogs
+          .map((blog) =>
             `
             <item>
-              <title>${joke.name}</title>
-              <description>A funny joke called ${joke.name}</description>
-              <author>${joke.jokester.username}</author>
-              <pubDate>${joke.createdAt}</pubDate>
-              <link>${jokesUrl}/${joke.id}</link>
-              <guid>${jokesUrl}/${joke.id}</guid>
+              <title>${blog.name}</title>
+              <description>A funny blog called ${blog.name}</description>
+              <author>${blog.author.username}</author>
+              <pubDate>${blog.createdAt}</pubDate>
+              <link>${blogsUrl}/${blog.id}</link>
+              <guid>${blogsUrl}/${blog.id}</guid>
             </item>
           `.trim()
           )

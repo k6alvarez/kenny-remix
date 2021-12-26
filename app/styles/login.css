@@ -4,10 +4,6 @@
  * pages!
  */
 
-body {
-  background-image: var(--gradient-background);
-}
-
 .container {
   min-height: inherit;
 }
@@ -21,6 +17,7 @@ body {
 }
 
 .content {
+  flex-grow: initial;
   padding: 1rem;
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -56,9 +53,4 @@ fieldset > :not(:last-child) {
   display: flex;
   gap: 1.5rem;
   align-items: center;
-}
-
-.links a:hover {
-  text-decoration-style: wavy;
-  text-decoration-thickness: 1px;
 }

@@ -25,22 +25,22 @@ export let links: LinksFunction = () => {
 };
 
 export let meta: MetaFunction = () => {
-  let description = `Learn Remix and laugh at the same time!`;
+  let description = `Kenny Alvarez personal website and blog!`;
   return {
     description,
-    keywords: 'Remix,jokes',
+    keywords: 'developer, blog, portfolio, kenny, alvarez, user, interface',
     'twitter:image': 'https://remix-jokes.lol/social.png',
     'twitter:card': 'summary_large_image',
-    'twitter:creator': '@remix_run',
-    'twitter:site': '@remix_run',
-    'twitter:title': 'Remix Jokes',
+    'twitter:creator': '@AlvarezKennyATL',
+    'twitter:site': '@AlvarezKennyATL',
+    'twitter:title': 'AlvarezKennyATL',
     'twitter:description': description,
   };
 };
 
 function Document({
   children,
-  title = `Remix: So great, it's funny!`,
+  title = `Kenny Alvarez Blog`,
 }: {
   children: React.ReactNode;
   title?: string;

@@ -17,6 +17,8 @@ model User {
   username     String   @unique
   passwordHash String
   jokes        Joke[]
+  blogs        Blog[]
+  role         String   @default("ADMIN")
 }
 
 model Joke {
@@ -27,4 +29,15 @@ model Joke {
   updatedAt  DateTime @updatedAt
   name       String
   content    String
+}
+
+model Blog {
+  id        String   @id @default(uuid())
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  content   String
+  image     String
 }
