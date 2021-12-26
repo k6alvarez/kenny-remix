@@ -1,27 +1,22 @@
-export const Cards = () => {
+type DataType = {
+  id: string;
+  image: string;
+  name: string;
+};
+export interface CardsInterface {
+  data: DataType[];
+}
+
+export const Cards = ({ data }: CardsInterface) => {
   return (
-    <div className="cards">
-      <div className="card">
-        <img src="https://picsum.photos/seed/picsum/400/300?grayscale" />
-        <p>
-          This is a random blog post. It will contain an image along with a
-          short description not much longer than this.
-        </p>
-      </div>
-      <div className="card">
-        <img src="https://picsum.photos/seed/picsum/400/300?grayscale" />
-        <p>
-          This is a random blog post. It will contain an image along with a
-          short description not much longer than this.
-        </p>
-      </div>
-      <div className="card">
-        <img src="https://picsum.photos/seed/picsum/400/300?grayscale" />
-        <p>
-          This is a random blog post. It will contain an image along with a
-          short description not much longer than this.
-        </p>
-      </div>
-    </div>
+    <ul className="cards">
+      {data &&
+        data.map(({ id, image, name }: DataType, i: number) => (
+          <li className="card" key={id + '-' + i}>
+            <img src={image} />
+            <p>{name}</p>
+          </li>
+        ))}
+    </ul>
   );
 };

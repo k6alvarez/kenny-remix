@@ -31,7 +31,7 @@ export let loader: LoaderFunction = async ({ request }) => {
   let blogListItems = await db.blog.findMany({
     take: 5,
     orderBy: { createdAt: 'desc' },
-    select: { id: true, name: true },
+    select: { id: true, name: true, image: true },
   });
   let user = await getUser(request);
 
@@ -53,7 +53,8 @@ export default function JokesRoute() {
           {/* <Link to=".">Get a random blog</Link> */}
           <p>
             I do not blog a whole lot but here are a few of my most recent
-            posts.
+            posts. I'll share my experiences working as a remote software
+            developer.
           </p>
           <ul>
             {data.blogListItems.map((blog) => (

@@ -55,7 +55,3 @@ export const Header = () => {
     </header>
   );
 };
-
-// <div className="user-info">
-//   {/* <span>{`Hi ${data.user.username}`}</span> */}
-// </div>;

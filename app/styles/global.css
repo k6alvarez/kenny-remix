@@ -11,7 +11,7 @@
   --color-background: hsl(278, 73%, 19%);
   --color-links: hsla(var(--hs-links) 55%);
   --color-links-hover: hsla(var(--hs-links) 65%);
-  --color-border: hsl(277, 85%, 38%);
+  --color-border: var(--raisin-black);
   --color-invalid: hsl(356, 100%, 71%);
   --gradient-background: radial-gradient(
     circle,
@@ -374,6 +374,10 @@ label > [type='radio'] {
   padding: 0.05rem 1rem;
 }
 
+.app-header > a {
+  color: var(--white);
+}
+
 .app-header nav ul {
   display: flex;
   gap: calc((var(--theme-gap)) / 2);
@@ -399,20 +403,6 @@ label > [type='radio'] {
   flex-direction: column;
   align-items: center;
   text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
-}
-
-.intro-section {
-  background-color: var(--carolina-blue);
-  padding: var(--theme-padding);
-  width: 100vw;
-}
-
-.intro-section:nth-child(2) {
-  background-color: var(--marigold);
-}
-
-.intro-section:nth-child(3) {
-  background-color: var(--flame);
 }
 
 .app-footer {

@@ -1,3 +1,17 @@
 .blogs-outlet {
   margin-bottom: var(--theme-gap);
 }
+
+.intro-section {
+  background-color: var(--carolina-blue);
+  padding: var(--theme-padding);
+  width: 100vw;
+}
+
+.intro-section:nth-child(2) {
+  background-color: var(--marigold);
+}
+
+.intro-section:nth-child(3) {
+  background-color: var(--flame);
+}

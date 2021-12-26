@@ -1,8 +1,14 @@
 import { User } from '@prisma/client';
-import { LinksFunction, LoaderFunction, MetaFunction } from 'remix';
+import {
+  LinksFunction,
+  LoaderFunction,
+  MetaFunction,
+  useLoaderData,
+} from 'remix';
 import { Cards } from '~/components/cards';
 import { Footer } from '~/components/footer';
 import { Header } from '~/components/header';
+import { db } from '~/utils/db.server';
 import { getUser } from '~/utils/session.server';
 import stylesUrl from '../styles/index.css';
 
@@ -24,18 +30,26 @@ export let meta: MetaFunction = () => {
 
 type LoaderData = {
   user: User | null;
+  blogListItems: Array<{ id: string; name: string }>;
 };
 
 export let loader: LoaderFunction = async ({ request }) => {
   let user = await getUser(request);
+  let blogListItems = await db.blog.findMany({
+    take: 5,
+    orderBy: { createdAt: 'desc' },
+    select: { id: true, name: true, image: true },
+  });
 
   let data: LoaderData = {
     user,
+    blogListItems,
   };
   return data;
 };
 
 export default function Index() {
+  let data = useLoaderData();
   return (
     <>
       <Header />
@@ -55,11 +69,11 @@ export default function Index() {
         </div>
         <div className="intro-section">
           <h1>My Blogs</h1>
-          <Cards />
+          <Cards data={data.blogListItems} />
         </div>
         <div className="intro-section">
           <h1>My Projects</h1>
-          <Cards />
+          <Cards data={[]} />
         </div>
       </div>
       <Footer />

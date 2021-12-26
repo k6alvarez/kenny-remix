@@ -38,7 +38,9 @@ export function CatchBoundary() {
 
   if (caught.status === 404) {
     return (
-      <div className="error-container">There are no blogs to display.</div>
+      <div className="error-container">
+        I'm still working on adding blogs. No hay nada aqui.
+      </div>
     );
   }
   throw new Error(`Unexpected caught response with status: ${caught.status}`);

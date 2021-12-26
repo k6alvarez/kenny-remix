@@ -25,6 +25,12 @@ function validateJokeContent(content: string) {
   }
 }
 
+function validateImageContent(content: string) {
+  if (content.length < 10) {
+    return `That url is too short`;
+  }
+}
+
 function validateJokeName(name: string) {
   if (name.length < 2) {
     return `That blog's name is too short`;
@@ -36,10 +42,12 @@ type ActionData = {
   fieldErrors?: {
     name: string | undefined;
     content: string | undefined;
+    image: string | undefined;
   };
   fields?: {
     name: string;
     content: string;
+    image: string;
   };
 };
 
@@ -50,15 +58,21 @@ export let action: ActionFunction = async ({
   let form = await request.formData();
   let name = form.get('name');
   let content = form.get('content');
-  if (typeof name !== 'string' || typeof content !== 'string') {
+  let image = form.get('image');
+  if (
+    typeof name !== 'string' ||
+    typeof content !== 'string' ||
+    typeof image !== 'string'
+  ) {
     return { formError: `Form not submitted correctly.` };
   }
 
   let fieldErrors = {
     name: validateJokeName(name),
     content: validateJokeContent(content),
+    image: validateImageContent(image),
   };
-  let fields = { name, content };
+  let fields = { name, content, image };
   if (Object.values(fieldErrors).some(Boolean)) {
     return { fieldErrors, fields };
   }
@@ -76,11 +90,14 @@ export default function NewJokeRoute() {
   if (transition.submission) {
     let name = transition.submission.formData.get('name');
     let content = transition.submission.formData.get('content');
+    let image = transition.submission.formData.get('image');
     if (
       typeof name === 'string' &&
       typeof content === 'string' &&
+      typeof image === 'string' &&
       !validateJokeContent(content) &&
-      !validateJokeName(name)
+      !validateJokeName(name) &&
+      !validateImageContent(image)
     ) {
       return (
         <BlogDisplay
@@ -106,6 +123,20 @@ export default function NewJokeRoute() {
               aria-invalid={Boolean(actionData?.fieldErrors?.name) || undefined}
               aria-describedby={
                 actionData?.fieldErrors?.name ? 'name-error' : undefined
+              }
+            />
+          </label>
+          <label>
+            Image:{' '}
+            <input
+              type="text"
+              defaultValue={actionData?.fields?.image}
+              name="image"
+              aria-invalid={
+                Boolean(actionData?.fieldErrors?.image) || undefined
+              }
+              aria-describedby={
+                actionData?.fieldErrors?.image ? 'image-error' : undefined
               }
             />
           </label>
