@@ -14,8 +14,9 @@ async function seed() {
     getJokes().map(joke => {
       let data = { jokesterId: panchoVilla.id, ...joke };
       return prisma.joke.create({ data });
-    }),getBlogs().map(blog => {
-      let data = { author: panchoVilla.id ,...blog }
+    }),
+    getBlogs().map(blog => {
+      let data = { authorId: panchoVilla.id ,...blog }
       return prisma.blog.create({ data })
     })]
   );
