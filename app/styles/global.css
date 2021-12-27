@@ -429,7 +429,8 @@ label > [type='radio'] {
   list-style: none;
 }
 
-.card a {
+.card a,
+.cards li {
   display: flex;
   flex-direction: column;
   color: var(--raisin-black);

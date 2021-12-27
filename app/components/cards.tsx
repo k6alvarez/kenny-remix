@@ -20,15 +20,20 @@ export const Cards = ({ data, title }: CardsInterface) => {
       )}
 
       <ul className="cards">
-        {data &&
-          data.map(({ id, image, name }: DataType, i: number) => (
-            <li className="card" key={id + '-' + i}>
-              <Link prefetch="intent" to={`/blogs/${id}`}>
-                <img src={image} />
-                <p>{name}</p>
-              </Link>
-            </li>
-          ))}
+        {data && data.length ? (
+          <>
+            {data.map(({ id, image, name }: DataType, i: number) => (
+              <li className="card" key={id + '-' + i}>
+                <Link prefetch="intent" to={`/blogs/${id}`}>
+                  <img src={image} />
+                  <p>{name}</p>
+                </Link>
+              </li>
+            ))}
+          </>
+        ) : (
+          <li>Dannnng I haven't blogged anything. 🤦 </li>
+        )}
       </ul>
     </div>
   );
