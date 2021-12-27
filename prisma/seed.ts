@@ -2,19 +2,22 @@ import { PrismaClient } from "@prisma/client";
 let prisma = new PrismaClient();
 
 async function seed() {
-  let kody = await prisma.user.create({
+  let panchoVilla = await prisma.user.create({
     data: {
-      username: "kody",
+      username: "panchoVilla",
       // this is a hashed version of "twixrox"
       passwordHash:
         "$2b$10$K7L1OJ45/4Y2nIvhRVpCe.FSmhDdWoXehVzJptJ/op0lSsvqNu/1u"
     }
   });
-  await Promise.all(
+  await Promise.all([
     getJokes().map(joke => {
-      let data = { jokesterId: kody.id, ...joke };
+      let data = { jokesterId: panchoVilla.id, ...joke };
       return prisma.joke.create({ data });
-    })
+    }),getBlogs().map(blog => {
+      let data = { author: panchoVilla.id ,...blog }
+      return prisma.blog.create({ data })
+    })]
   );
 }
 
@@ -52,5 +55,24 @@ function getJokes() {
       name: "Elevator",
       content: `My first time using an elevator was an uplifting experience. The second time let me down.`
     }
+  ];
+}
+
+
+function getBlogs() {
+  // shout-out to https://icanhazdadjoke.com/
+
+  return [
+    {
+      name: "Building with Remix",
+      content: `Build better websites with Remix and React Router. Remix brings the state of the art in web development without leaving behind the fundamentals. Build better websites with Remix and React Router. Remix brings the state of the art in web development without leaving behind the fundamentals. Build better websites with Remix and React Router. Remix brings the state of the art in web development without leaving behind the fundamentals.`,
+      image: ''
+    },
+    {
+      name: "Reusable components with accessibility in mind.",
+      content: `React components with ref forwarding and a11y considerations.`,
+      image: ''
+    },
+
   ];
 }
