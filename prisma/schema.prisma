@@ -18,7 +18,7 @@ model User {
   passwordHash String
   jokes        Joke[]
   blogs        Blog[]
-  role         String   @default("ADMIN")
+  role         String   @default("USER")
 }
 
 model Joke {
